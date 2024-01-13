@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Gaming</title>
+    <header><h3>Let's Play</h3></header>
+
+    <style>
+        #user_move {
+            margin-bottom: 20px;
+        }
+
+        body {
+            background-color: rgb(0, 177, 175);
+            margin: 50px;
+            padding: 20px;
+            font-family: Arial, sans-serif;
+        }
+        #your_move:hover::before {
+            content: "Click here to see Computer's move";
+            
+        }
+
+        #moves {
+            padding-top : 20px;
+            font-size: 30px;
+        }
+    </style>
+</head>
+<body>
+    <main>
+        <div>Choose your move from Rock/Paper/Scissor<br><br>
+            <input type="text" id="user_move" placeholder="Enter your move here">
+        </div>
+        <button id="your_move">Your turn</button>
+
+        <div id="moves">
+            <span id="user_move_display">❓</span>
+            <span id="computer_move_display">❓</span>
+        </div>
+
+    </main>
+
+    <script>
+        document.getElementById('your_move').addEventListener('click', processMove);
+        document.getElementById('user_move').addEventListener('keypress', function (e) {
+            if (e.key === 'Enter') {
+                processMove();
+            }
+        });
+
+        function processMove() {
+            let user_move = document.getElementById('user_move').value;
+            if (user_move) {
+                Your_move(user_move.toLowerCase());
+            } else {
+                alert('Please enter your move before clicking "Your turn".');
+            }
+        }
+
+        function Your_move(user_move) {
+            let a1 = Math.random();
+            let move;
+
+            if (a1 > 0 && a1 <= 1 / 3) {
+                move = 'rock';
+            } else if (a1 > 1 / 3 && a1 <= 2 / 3) {
+                move = 'paper';
+            } else if (a1 > 2 / 3 && a1 <= 1) {
+                move = 'scissor';
+            }
+
+            let user_move_lower = user_move.toLowerCase();
+
+            if (user_move_lower === 'rock' && move === 'rock') {
+                alert('It\'s a tie, Computer also chose ' + move);
+            } else if (user_move_lower === 'rock' && move === 'paper') {
+                alert('Computer chose ' + move + ', you win');
+            } else if (user_move_lower === 'rock' && move === 'scissor') {
+                alert('Computer chose ' + move + ', you win');
+            } else if (user_move_lower === 'paper' && move === 'rock') {
+                alert('Computer chose ' + move + ', Computer wins');
+            } else if (user_move_lower === 'paper' && move === 'paper') {
+                alert('It\'s a tie, Computer also chose ' + move);
+            } else if (user_move_lower === 'paper' && move === 'scissor') {
+                alert('Computer chose ' + move + ', Computer wins');
+            } else if (user_move_lower === 'scissor' && move === 'rock') {
+                alert('Computer chose ' + move + ', Computer wins');
+            } else if (user_move_lower === 'scissor' && move === 'paper') {
+                alert('Computer chose ' + move + ', you win');
+            } else if (user_move_lower === 'scissor' && move === 'scissor') {
+                alert('It\'s a tie, Computer also chose ' + move);
+            }
+
+            // Update the emojis based on user and computer moves
+            document.getElementById('user_move_display').innerHTML = getEmoji(user_move);
+            document.getElementById('computer_move_display').innerHTML = getEmoji(move);
+        }
+
+        function getEmoji(move) {
+            const emojiMap = {
+                rock: '🪨',
+                paper: '📄',
+                scissor: '✂️'
+            };
+            return emojiMap[move] || '🤷'; 
+        }
+    </script>
+</body>
+</html>
