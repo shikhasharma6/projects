@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Technical Documentation</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+            padding: 20px;
+            background-color: #f5f5f5;
+        }
+
+        header {
+            text-align: center;
+            padding: 20px;
+            background-color: #333;
+            color: white;
+            font-size: 24px;
+        }
+
+        section {
+            margin-bottom: 20px;
+        }
+
+        h2 {
+            color: #333;
+        }
+
+        p, code {
+            font-size: 16px;
+            line-height: 1.6;
+            margin-bottom: 10px;
+        }
+
+        code {
+            background-color: #f2f2f2;
+            padding: 2px 5px;
+            border-radius: 3px;
+        }
+        #container {
+    display: flex;
+}
+
+#page {
+    width: 200px; 
+    min-height: 30vh; 
+    padding: 10px;
+    background-color: #f0f0f0;
+}
+
+#page a {
+    display: block;
+    margin-bottom: 10px;
+    text-decoration: none;
+    color: #333;
+}
+
+#content {
+    flex-grow: 0;
+    padding: 20px;
+    background-color: #fff; 
+}
+        
+    </style>
+</head>
+<body>
+    <div id="container">
+    <div id="page">
+    <a href="#hd">Technical Documentation</a>
+    <a href="#intro">Introduction</a>
+    <a href="#inst">Installation</a>
+    <a href="#usg">Usage</a>
+    <a href="#cnfg">Configuration</a>
+</div>
+</div>
+<div id="content">
+    <header id="hd">
+        Technical Documentation
+    </header>
+
+    <section id="intro">
+        <h2>Introduction</h2>
+        <p>This is the introduction section of your technical documentation. Provide an overview of the technology or topic you are documenting.</p>
+    </section>
+
+    <section id="inst">
+        <h2>Installation</h2>
+        <p>Explain the steps required to install or set up the technology. Use code blocks for commands:</p>
+        <code>
+            npm install your-package
+        </code>
+    </section>
+
+    <section id="usg">
+        <h2>Usage</h2>
+        <p>Describe how to use the technology. Include examples and code snippets:</p>
+        <code>
+            const example = new Example();
+            example.doSomething();
+        </code>
+    </section>
+
+    <section id="cnfg">
+        <h2>Configuration</h2>
+        <p>Provide information about configuration options if applicable. Use tables for clarity:</p>
+        <table>
+            <tr>
+                <th>Option</th>
+                <th>Description</th>
+            </tr>
+            <tr>
+                <td>config1</td>
+                <td>Description of config1</td>
+            </tr>
+            <tr>
+                <td>config2</td>
+                <td>Description of config2</td>
+            </tr>
+        </table>
+    </section>
+
+    
+</div>
+</body>
+</html>
