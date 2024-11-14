@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    
+    <title>Product Landing Page</title>
+    <style>
+        #about {
+            height: 400px;
+            background-color: rgb(0, 170, 170);
+            color: rgb(0, 0, 170);
+            text-align: center;
+            padding-top: 20px;
+            font-family: Italic;
+        }
+
+        
+
+        #items {
+            height: 100px;
+            background-color: rgb(140, 140, 0);
+            display: flex;
+            margin-right: 50px;
+            text-align: center;
+            padding: 70px;
+        }
+
+        h2,
+        h3 {
+            margin: 0;
+        }
+        body{
+            background-color:rgb(100,140,100);
+        }
+
+        #email {
+            height: 100px;
+            background-color: rgb(140, 140, 200);
+            text-align: center;
+            padding-top: 2px;
+        }
+
+        #nav {
+            background-color: #333;
+            overflow: hidden;
+            position: absolute;
+            top: 0;
+            right: 0;
+        }
+
+        #nav a {
+            float: left;
+            color: #f2f2f2;
+            text-align: center;
+            padding: 14px 16px;
+            text-decoration: none;
+            font-size: 17px;
+        }
+
+        #nav a:hover {
+            background-color: #ddd;
+            color: black;
+        }
+
+        #nav a.active {
+            background-color: #04AA6D;
+            color: white;
+        }
+
+        #cart {
+            margin-top: 20px;
+            text-align: center;
+        }
+
+        #cart-items {
+            list-style: none;
+            padding: 0;
+        }
+
+        .add{
+            height:30px;
+        }
+        .delete{
+            height:30px;
+        }
+    </style>
+</head>
+
+<body>
+    <main>
+
+        <div id="nav">
+           
+            <a href="#items">Items</a>
+            <a href="#email">E-mail</a>
+        </div>
+
+        <label id="items">
+            <p><h2 class="item">Bodywash</h2></p>
+            <h3 class="price">$20</h3>
+            <button class="add" onclick="addToCart('Bodywash', 20)">Add to Cart</button>
+            <button class="delete" onclick="Delete()">Delete</button>
+
+            <p><h2 class="item">Shampoo</h2></p>
+            <h3 class="price">$50</h3>
+            <button class="add" onclick="addToCart('Shampoo', 50)">Add to Cart</button>
+            <button class="delete" onclick="Delete()">Delete</button>
+
+            <p><h2 class="item">Body spray</h2></p>
+            <h3 class="price">$35</h3>
+            <button class="add" onclick="addToCart('Body spray', 35)">Add to Cart</button>
+            <button class="delete" onclick="Delete()">Delete</button>
+        </label>
+
+        <div id="email">
+            <input type="email" id="emailid" placeholder="Enter your email address" required/>
+            <button id="button" onclick="submitForm()">Submit</button>
+        </div>
+
+        <div id="cart">
+            <h2>Shopping Cart</h2>
+            <ul id="cart-items"></ul>
+        </div>
+
+    </main>
+
+    <script>
+        let cart1 = [];
+        let cart2 = [];
+
+        function addToCart(item, price) {
+            cart1.push(item);
+            cart2.push(price);
+            console.log('Added to Cart:', item, 'Price:', price);
+        }
+
+        function submitForm() {
+            console.log('Items in Cart:', cart1);
+            console.log('Prices in Cart:', cart2);
+
+            
+            const cartItemsElement = document.getElementById('cart-items');
+            cartItemsElement.innerHTML = '';
+            cart1.forEach((item, index) => {
+                const li = document.createElement('li');
+                li.textContent = `${item} - $${cart2[index]}`;
+                cartItemsElement.appendChild(li);
+            });
+
+            
+        }
+
+        function Delete() {
+            if (cart1.length > 0) {
+                const deletedItem = cart1.pop();
+                const deletedPrice = cart2.pop();
+                console.log('Deleted:', deletedItem, 'Price:', deletedPrice);
+            } else {
+                console.log('Cart is empty. Nothing to delete.');
+            }
+        }
+    </script>
+</body>
+
+</html>

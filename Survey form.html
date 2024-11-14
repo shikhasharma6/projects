@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Survey Form</title>
+<header>Survey Form</header>
+<style>
+    header{
+        text-align:center;
+        font-size:50px;
+        
+    }
+    #option {
+            margin-bottom: 10px;
+            text-align:center;
+            
+        }
+
+        #details {
+            display: block;
+            margin-bottom: 5px;
+        }
+    body{
+        background-color:rgb(150,100,150)
+        
+    }
+    #o{
+        margin:10px;
+    }
+    #textarea{
+        margin-top:5px;
+    }
+    #rb{
+        display:block;
+        margin-left:0px;
+    }
+    #checkbox-container {
+            display: flex;
+            flex-direction: column;
+        }
+        label {
+            display: flex;
+            align-items: center;
+            text-align:center;
+        }
+    button{
+        text-align:center;
+        align-items: center;
+    }
+</style>
+</head>
+<body>
+    <main>
+<div id="option">
+    <label id="details">Name</label>
+    <input type="text" id="name" placeholder="Enter your name" required>
+</div>
+<div id="option">
+<label id="details">E-mail</label>
+<input type="email" id="email" placeholder="Enter your email" required>
+</div>
+<div id="option">
+<label id="details">Age</label>
+<input type="number" id="age" placeholder="Enter your age" min="18" max="60">
+</div>
+<div id="option">
+<label id="details" for="details">Which option best describes your current role?</label>
+<select id="role">Which option best describes your current role?
+</div>
+<div id="option">
+<option value="student">Student</option>
+</div>
+<div id="option">
+<option value="part-time">Part-time job</option>
+</div>
+<div id="option">
+<option value="full-time">Full-time Job</option>
+</div>
+<div id="option">
+<option value="none">None</option>
+</select>
+</div>
+<div id="option">
+<label id="details">Are you vaccinated</label>
+<select>Are you vaccinated
+<option>Yes</option>
+<option>No</option>
+</select>
+</div>
+<div id="option">
+<label id="details" for="details">Choose your vaccine
+<label>
+<input type="radio" value="covaxin" name="vaccine" id="rb" checked>Covaxin<br>
+</label>
+</label>
+<label>
+<input type="radio" value="covrolina" name="vaccine" id="rb">Corolina<br>
+</label>
+<label>
+<input type="radio" value="h28" name="vaccine" id="rb">H-28<br>
+</label>
+</label>
+</div>
+<div id="option">
+<label id="details">Which skills you are best at:</label>
+<div id="checkbox-container">
+    <label>
+        <input type="checkbox" id="o" name="skills">Python
+    </label>
+    <label>
+        <input type="checkbox" id="o" name="skills">JavaScript
+    </label>
+    <label>
+        <input type="checkbox" id="o" name="skills">HTML+CSS
+    </label>
+    <label>
+        <input type="checkbox" id="o" name="skills">Java
+    </label>
+    <label>
+        <input type="checkbox" id="o" name="skills">.Net
+    </label>
+    <label>
+        <input type="checkbox" id="o" name="skills">Database
+    </label>
+    <label>
+        <input type="checkbox" id="o" name="skills">MySQL
+    </label>
+</div>
+</div>
+<div id="option">
+<label id="details">Additional Comments</label>
+<textarea name="textarea" id="textarea" cols="20" rows="5"></textarea>
+</div>
+
+<button onclick="submitForm()">Submit</button>
+    </main>
+</body>
+<script>
+function submitForm() {
+        let age = document.getElementById('age').value;
+        let name = document.getElementById('name').value;
+        let email = document.getElementById('email').value;
+
+        
+        if (!name || !email) {
+            alert('Please fill in all required fields.');
+        } else {
+            
+            
+                document.getElementById('thankYouMessage').style.display = 'block';
+            
+        }
+    }
+
+</script>
+
+</html>
