@@ -1,0 +1,11 @@
+[
+    {
+        "model": "gpt-4o-mini",
+        "api_key": "YOUR-API-KEY",
+        "tags": [
+            "gpt-4o-mini",
+            "tool",
+            "vision"
+        ]
+    }
+]
