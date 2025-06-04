@@ -1,12 +1,13 @@
-FROM python:3.8
+FROM python:3.8.18
 
-ENV PORT 5000
+ENV PORT 8080
 ENV HOSTDIR 0.0.0.0
 
-EXPOSE 5000
+EXPOSE 8080
 
 RUN apt-get update -y && \
     apt-get install -y python3-pip
+
 
 COPY ./requirements.txt /app/requirements.txt
 
@@ -15,6 +16,12 @@ WORKDIR /app
 RUN pip install -r requirements.txt
 
 COPY . /app
+
+COPY lstm-457719-4ef14b3a3804.json /app/
+WORKDIR /app
+
+#COPY lstm-457719-4ef14b3a3804.json /app/key.json
+#ENV GOOGLE_APPLICATION_CREDENTIALS="/app/key.json"
 
 
 ENTRYPOINT ["python", "app.py"]
